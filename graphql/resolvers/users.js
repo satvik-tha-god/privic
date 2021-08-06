@@ -19,7 +19,7 @@ module.exports = {
     }, parent, args) {
       //TODO Validate user data
       //TODO Make sure user doesn't doesn't already exist
-      const user = await findOne({ username });
+      const user = await User.findOne({ username });
       if(user){
           throw new UserInputError('Username is taken', {
             errors: {
