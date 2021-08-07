@@ -15,7 +15,8 @@ const {
 //setting up  apollo server
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: ({req}) => ({req})
 });
 //connect to database and run the server at port 5000
 mongoose.connect(MONGODB, {
