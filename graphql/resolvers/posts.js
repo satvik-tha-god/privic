@@ -100,7 +100,7 @@ module.exports = {
     newPost: {
       subscribe: (_, __, {
         pubsub
-      }) => pubsub.asyncIterator('NEW_POST');
+      }) => pubsub.asyncIterator('NEW_POST')
     }
   }
 };
