@@ -6,6 +6,12 @@ import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { setContext } from 'apollo-link-context';
 
+// import ApolloClient from 'apollo-client';
+// import { InMemoryCache } from '@apollo/client';
+// import { createHttpLink } from '@apollo/client';
+// import { ApolloProvider } from '@apollo/client';
+// import { setContext } from 'apollo-link-context';
+
 const httpLink = createHttpLink({
   uri: 'http://localhost:5000'
 });

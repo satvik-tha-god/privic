@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
+// import { useQuery } from '@apollo/client';
 import { Grid, Transition } from 'semantic-ui-react';
 
 import { AuthContext } from '../context/auth';
