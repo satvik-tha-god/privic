@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/react-hooks';
-// import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 
 import { AuthContext } from '../context/auth';
@@ -13,7 +12,7 @@ function Register(props) {
 
   const { onChange, onSubmit, values } = useForm(registerUser, {
     username: '',
-    email: '',
+    // email: '',
     password: '',
     confirmPassword: ''
   });
@@ -51,15 +50,7 @@ function Register(props) {
           error={errors.username ? true : false}
           onChange={onChange}
         />
-        <Form.Input
-          label="Email"
-          placeholder="Email.."
-          name="email"
-          type="email"
-          value={values.email}
-          error={errors.email ? true : false}
-          onChange={onChange}
-        />
+
         <Form.Input
           label="Password"
           placeholder="Password.."
@@ -98,20 +89,17 @@ function Register(props) {
 const REGISTER_USER = gql`
   mutation register(
     $username: String!
-    $email: String!
     $password: String!
     $confirmPassword: String!
   ) {
     register(
       registerInput: {
         username: $username
-        email: $email
         password: $password
         confirmPassword: $confirmPassword
       }
     ) {
       id
-      email
       username
       createdAt
       token
