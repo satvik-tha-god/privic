@@ -13,6 +13,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import SinglePost from './pages/SinglePost';
+import Chat from './pages/Chat';
+import Join from './pages/Join';
+import Create from './pages/Create';
+import MainChat from './pages/MainChat';
 
 function App() {
   return (
@@ -23,7 +27,11 @@ function App() {
           <Route exact path="/" component={Home} />
           <AuthRoute exact path="/login" component={Login} />
           <AuthRoute exact path="/register" component={Register} />
-          <AuthRoute exact path="/posts/:postId" component={SinglePost} />
+          <Route exact path="/posts/:postId" component={SinglePost} />
+          <Route exact path="/main-chat" component={MainChat} />
+          <Route exact path="/create" component={Create} />
+          <Route exact path="/join" component={Join} />
+          <Route exact path="/join/chat" component={Chat} />
         </Container>
       </Router>
     </AuthProvider>

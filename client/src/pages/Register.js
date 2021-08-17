@@ -5,17 +5,27 @@ import gql from 'graphql-tag';
 
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
+import nameList from './username';
+
 
 function Register(props) {
+
+
   const context = useContext(AuthContext);
   const [errors, setErrors] = useState({});
-
   const { onChange, onSubmit, values } = useForm(registerUser, {
     username: '',
-    // email: '',
     password: '',
     confirmPassword: ''
   });
+
+  function generateUser() {
+      values.username = nameList[Math.floor(Math.random() * nameList.length)];
+      values.username += nameList[Math.floor(Math.random() * nameList.length)];
+      if (Math.random() > 0.5) {
+        values.username += nameList[Math.floor(Math.random() * nameList.length)];
+      }
+    }
 
   const [addUser, { loading }] = useMutation(REGISTER_USER, {
     update(
@@ -41,6 +51,7 @@ function Register(props) {
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
         <h1>Register</h1>
+        <h2>Hello  {values.username}</h2>
         <Form.Input
           label="Username"
           placeholder="Username.."
@@ -49,8 +60,9 @@ function Register(props) {
           value={values.username}
           error={errors.username ? true : false}
           onChange={onChange}
+          readOnly
         />
-
+        <button onClick={generateUser}>Generate</button>
         <Form.Input
           label="Password"
           placeholder="Password.."

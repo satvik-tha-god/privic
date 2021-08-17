@@ -19,6 +19,11 @@ module.exports.validateRegisterInput = (
     errors.password = 'Password must not empty';
   } else if (password !== confirmPassword) {
     errors.confirmPassword = 'Passwords must match';
+  } else {
+    const regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    if(!password.match(regEx)){
+      errors.password = 'Password must have minimum eight characters, at least one uppercase letter, one lowercase letter and one number';
+    }
   }
 
   return {

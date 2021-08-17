@@ -17,11 +17,11 @@ function MenuBar() {
     <Menu pointing secondary size="massive" color="teal">
       <Menu.Item name={user.username} active as={Link} to="/" />
       <Menu.Item
-      name="chat"
-      active={activeItem === 'chat'}
+      name="chatroom"
+      active={activeItem === 'chatroom'}
       onClick={handleItemClick}
       as={Link}
-      to="/chat"
+      to="/main-chat"
       />
 
       <Menu.Menu position="right">
