@@ -30,21 +30,28 @@ function PostForm() {
 
   return (
     <>
-      <Form onSubmit={onSubmit}>
-        <h2>Create a post:</h2>
+      <center>
+      <Form onSubmit={onSubmit} style={{maxWidth: "1000px", marginBottom:"20px"}}>
+        <p style={{fontSize: "36px"}}>What's on your mind today?</p>
         <Form.Field>
-          <Form.Input
-            placeholder="Hi World!"
+          <textarea
+            rows="5"
+            cols="90"
+            style={{background: "none", border: "2px solid teal", marginBottom: "20px",color:"teal", fontSize:"18px"}}
+            center
+            placeholder="Post something"
             name="body"
             onChange={onChange}
             value={values.body}
             error={error ? true : false}
           />
-          <Button type="submit" color="teal">
+          <Button type="submit" color="teal" basic>
             Submit
           </Button>
         </Form.Field>
+
       </Form>
+
       {error && (
         <div className="ui error message" style={{ marginBottom: 20 }}>
           <ul className="list">
@@ -52,7 +59,9 @@ function PostForm() {
           </ul>
         </div>
       )}
+      </center>
     </>
+
   );
 }
 

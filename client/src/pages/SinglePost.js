@@ -63,22 +63,28 @@ function SinglePost(props) {
       commentCount
     } = getPost;
 
+    const inputStyle = {
+      background: "none",
+      border: "1px solid teal",
+      color: "teal"
+    }
+
     postMarkup = (
       <Grid>
         <Grid.Row>
           <Grid.Column width={2}>
             <Image
-              src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+              src="/images/anonymous-avatar.png"
               size="small"
               float="right"
             />
           </Grid.Column>
           <Grid.Column width={10}>
-            <Card fluid>
+            <div fluid style={{background: "none", border: "2px solid teal", padding: "10px", borderRadius: "5px"}}>
               <Card.Content>
-                <Card.Header>{username}</Card.Header>
-                <Card.Meta>{moment(createdAt).fromNow()}</Card.Meta>
-                <Card.Description>{body}</Card.Description>
+                <Card.Header style={{color:"teal"}}>{username}</Card.Header>
+                <Card.Meta style={{color:"#727474"}}>{moment(createdAt).fromNow()}</Card.Meta>
+                <Card.Description style={{color:"white"}}>{body}</Card.Description>
               </Card.Content>
               <hr />
               <Card.Content extra>
@@ -89,10 +95,10 @@ function SinglePost(props) {
                     labelPosition="right"
                     onClick={() => console.log('Comment on post')}
                   >
-                    <Button basic color="blue">
+                    <Button color="teal" basic>
                       <Icon name="comments" />
                     </Button>
-                    <Label basic color="blue" pointing="left">
+                    <Label color="teal" pointing="left">
                       {commentCount}
                     </Label>
                   </Button>
@@ -101,14 +107,15 @@ function SinglePost(props) {
                   <DeleteButton postId={id} callback={deletePostCallback} />
                 )}
               </Card.Content>
-            </Card>
+            </div>
             {user && (
-              <Card fluid>
+              <div fluid style={{background: "none", border: "2px solid teal", padding: "10px", borderRadius: "5px", marginTop:"20px"}}>
                 <Card.Content>
                   <p>Post a comment</p>
                   <Form>
                     <div className="ui action input fluid">
                       <input
+                      style={inputStyle}
                         type="text"
                         placeholder="Comment.."
                         name="comment"
@@ -116,30 +123,32 @@ function SinglePost(props) {
                         onChange={(event) => setComment(event.target.value)}
                         ref={commentInputRef}
                       />
-                      <button
+                      <Button
                         type="submit"
+                        basic
+                        style={{background: "none"}}
                         className="ui button teal"
                         disabled={comment.trim() === ''}
                         onClick={submitComment}
                       >
                         Submit
-                      </button>
+                      </Button>
                     </div>
                   </Form>
                 </Card.Content>
-              </Card>
+              </div>
             )}
             {comments.map((comment) => (
-              <Card fluid key={comment.id}>
+              <div fluid key={comment.id} style={{background: "none", border: "2px solid teal", padding: "10px", borderRadius: "5px", marginTop:"20px"}}>
                 <Card.Content>
                   {user && user.username === comment.username && (
                     <DeleteButton postId={id} commentId={comment.id} />
                   )}
-                  <Card.Header>{comment.username}</Card.Header>
-                  <Card.Meta>{moment(comment.createdAt).fromNow()}</Card.Meta>
-                  <Card.Description>{comment.body}</Card.Description>
+                  <Card.Header style={{color:"teal"}}>{comment.username}</Card.Header>
+                  <Card.Meta style={{color:"#727474"}}>{moment(comment.createdAt).fromNow()}</Card.Meta>
+                  <Card.Description style={{color:"white"}}>{comment.body}</Card.Description>
                 </Card.Content>
-              </Card>
+              </div>
             ))}
           </Grid.Column>
         </Grid.Row>

@@ -19,10 +19,19 @@ import Create from './pages/Create';
 import MainChat from './pages/MainChat';
 
 function App() {
+
+  const logoStyle = {
+    position: "fixed",
+    top: "0px",
+    left: "0px",
+    height:"150px"
+  }
+
   return (
     <AuthProvider>
       <Router>
         <Container>
+          <img src="/images/logo.png" alt="logo" style={logoStyle}/>
           <MenuBar />
           <Route exact path="/" component={Home} />
           <AuthRoute exact path="/login" component={Login} />

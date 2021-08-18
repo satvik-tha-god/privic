@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/react-hooks';
-// import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 
 import { AuthContext } from '../context/auth';
@@ -35,30 +34,48 @@ function Login(props) {
   function loginUserCallback() {
     loginUser();
   }
-
+  const inputStyle = {
+    background: "none",
+    border: "1px solid teal",
+    color: "teal",
+    marginBottom: "10px"
+  }
+  const labelStyle = {
+    fontSize: "18px",
+    marginRight: "230px"
+  }
   return (
-    <div className="form-container">
+    <center>
+    <img src="/images/logo.png" alt="logo" style={{height:"200px"}}/>
+    <div className="form-container" style={{maxWidth: "400px"}}>
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
-        <h1>Login</h1>
-        <Form.Input
+
+        <p style={{fontSize: "36px", marginRight: "160px"}}>Welcome back, <span style={{color: "teal"}}>{values.username}</span> </p>
+        <p style={labelStyle}> Enter your username: </p>
+        <input
+          style={inputStyle}
           label="Username"
           placeholder="Username.."
           name="username"
           type="text"
+          autoComplete="none"
           value={values.username}
           error={errors.username ? true : false}
           onChange={onChange}
         />
-        <Form.Input
+        <p style={labelStyle}> Enter your password: </p>
+        <input
+          style={inputStyle}
           label="Password"
           placeholder="Password.."
           name="password"
           type="password"
+          autoComplete="new-password"
           value={values.password}
           error={errors.password ? true : false}
           onChange={onChange}
         />
-        <Button type="submit" primary>
+        <Button type="submit" color="teal" basic>
           Login
         </Button>
       </Form>
@@ -72,6 +89,7 @@ function Login(props) {
         </div>
       )}
     </div>
+    </center>
   );
 }
 

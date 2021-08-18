@@ -47,32 +47,52 @@ function Register(props) {
     addUser();
   }
 
+  const inputStyle = {
+    background: "none",
+    border: "1px solid teal",
+    color: "teal",
+    marginBottom: "15px"
+  }
+
   return (
+    <center>
+    <img src="/images/logo.png" alt="logo" style={{height:"200px"}}/>
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
-        <h1>Register</h1>
-        <h2>Hello  {values.username}</h2>
-        <Form.Input
+        <p style={{fontSize: "36px"}}>Welcome  <span style={{color:"teal"}}>{values.username}</span></p>
+        <p style={{fontSize: "18px", marginRight: "150px"}}>Enter an anonymous username:</p>
+        <input
+          style={inputStyle}
           label="Username"
           placeholder="Username.."
           name="username"
           type="text"
+          autoComplete="none"
           value={values.username}
           error={errors.username ? true : false}
           onChange={onChange}
-          readOnly
         />
-        <button onClick={generateUser}>Generate</button>
-        <Form.Input
+        <label>Or</label>
+        <br/>
+        <Button type="submit" color="teal" basic onClick={generateUser} style={{marginBottom: "10px"}}>
+          Generate
+        </Button>
+        <br />
+        <p style={{fontSize: "18px", marginRight: "200px"}}>Enter a secure password:</p>
+        <input
+          style={inputStyle}
           label="Password"
           placeholder="Password.."
           name="password"
           type="password"
+          autoComplete="none"
           value={values.password}
           error={errors.password ? true : false}
           onChange={onChange}
         />
-        <Form.Input
+        <p style={{fontSize: "18px", marginRight: "250px"}}>Confirm password:</p>
+        <input
+          style={inputStyle}
           label="Confirm Password"
           placeholder="Confirm Password.."
           name="confirmPassword"
@@ -81,12 +101,12 @@ function Register(props) {
           error={errors.confirmPassword ? true : false}
           onChange={onChange}
         />
-        <Button type="submit" primary>
+        <Button type="submit" color="teal" basic>
           Register
         </Button>
       </Form>
       {Object.keys(errors).length > 0 && (
-        <div className="ui error message">
+        <div className="ui error message" style={{background: "none"}}>
           <ul className="list">
             {Object.values(errors).map((value) => (
               <li key={value}>{value}</li>
@@ -95,6 +115,7 @@ function Register(props) {
         </div>
       )}
     </div>
+    </center>
   );
 }
 

@@ -38,14 +38,14 @@ function LikeButton({ user, post: { id, likeCount, likes } }) {
 
   return ( user? (<Button as="div" labelPosition="right" onClick={likePost}>
     <MyPopup content={liked ? 'Unlike' : 'Like'}>{likeButton}</MyPopup>
-    <Label basic color="teal" pointing="left">
+    <Label color="teal" pointing="left" style={{background:"none"}}>
       {likeCount}
     </Label>
   </Button>) : (<Button labelPosition='right' as='a' href='/login'>
       <MyPopup content={liked? 'unlike post': 'like post'}>
       {likeButton}
       </MyPopup>
-      <Label basic color="teal" pointing="left">
+      <Label color="teal" pointing="left" style={{background:"none"}}>
         {likeCount}
       </Label>
   </Button>)

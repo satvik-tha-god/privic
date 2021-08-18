@@ -9,22 +9,31 @@ const Message = ({ message: { text, user }, name }) => {
     isSentByCurrentUser = true;
   }
 
+  const messageStyle = {
+    border: "2px solid teal",
+    background: "none",
+    marginBottom: "10px",
+    padding: "10px",
+    borderRadius: "5px",
+    maxWidth: "700px"
+  }
+
   return (
     isSentByCurrentUser
       ? (
-        <div>
-          <p>{trimmedName}</p>
+        <div style={messageStyle}>
+          <p style={{color: "white", fontSize:"18px"}}>{trimmedName}</p>
           <div>
-            <p>{text}</p>
+            <p style={{color: "teal", fontSize:"24px"}}>{text}</p>
           </div>
         </div>
         )
         : (
           <div>
             <div>
-              <p>{text}</p>
+              <p style={{color: "teal", fontSize:"24px"}}>{text}</p>
             </div>
-            <p>{user}</p>
+            <p style={{color: "white", fontSize:"18px"}}>{user}</p>
           </div>
         )
   );

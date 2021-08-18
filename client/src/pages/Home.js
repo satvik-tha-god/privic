@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-// import { useQuery } from '@apollo/client';
 import { Grid, Transition } from 'semantic-ui-react';
 
 import { AuthContext } from '../context/auth';
@@ -16,9 +15,8 @@ function Home() {
   } = useQuery(FETCH_POSTS_QUERY);
 
   return (
-    <Grid columns={2}>
+    <Grid columns={1} style={{maxWidth: "1000px"}}>
       <Grid.Row className="page-title">
-        <h1>Recent Posts</h1>
       </Grid.Row>
       <Grid.Row>
         {user && (

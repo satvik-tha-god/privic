@@ -29,7 +29,7 @@ const Chat = ({ location }) => {
         alert(error);
       }
     });
-  }, [ENDPOINT, location.search]);
+  },[ENDPOINT, location.search]);
 
   useEffect(() => {
     socket.on('message', message => {
@@ -48,10 +48,10 @@ const Chat = ({ location }) => {
       socket.emit('sendMessage', message, () => setMessage(''));
     }
   }
+
   return (
     <div>
       <div>
-
           <Messages messages={messages} name={name} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
