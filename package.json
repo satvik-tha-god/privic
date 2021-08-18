@@ -1,0 +1,19 @@
+{
+  "name": "privic",
+  "version": "1.0.0",
+  "description": "An anonymous social media application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satvik-tha-god/privic.git"
+  },
+  "author": "Satvik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/satvik-tha-god/privic/issues"
+  },
+  "homepage": "https://github.com/satvik-tha-god/privic#readme"
+}
