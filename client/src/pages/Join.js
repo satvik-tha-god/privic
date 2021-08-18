@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import pinstring from "./pin.js"
 import "./css/pages.css";
 
 export default function SignIn() {
