@@ -26,7 +26,7 @@ function MenuBar() {
       />
 
       <Menu.Menu position="right">
-        <Menu.Item style={{color: "white"}} name="logout" onClick={logout} as={Link} to="/"/>
+        <Menu.Item style={{color: "white"}}  name="logout" onClick={logout} as={Link} to="/"/>
       </Menu.Menu>
     </Menu>
   ) : (
