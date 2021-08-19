@@ -29,7 +29,7 @@ const Message = ({ message: { text, user }, name }) => {
         </div>
         )
         : (
-          <div>
+          <div style={messageStyle}>
             <div>
               <p style={{color: "teal", fontSize:"24px"}}>{text}</p>
             </div>
