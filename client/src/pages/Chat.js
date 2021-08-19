@@ -5,7 +5,7 @@ import Messages from '../components/chatroom/Messages/Messages';
 import Input from '../components/chatroom/Input';
 import TextContainer from '../components/chatroom/TextContainer';
 
-const ENDPOINT = 'localhost:4000';
+const ENDPOINT = 'https://privic-chatroom.herokuapp.com/';
 
 let socket;
 
