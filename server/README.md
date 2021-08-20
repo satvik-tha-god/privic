@@ -1,4 +1,4 @@
-![Logo](./public/images/logo.png)
+![Logo](../public/images/logo.png)
 # Privic Chatroom
 This server is currently deployed at `https://privic-chatroom.herokuapp.com/`
 
