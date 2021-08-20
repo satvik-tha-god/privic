@@ -119,6 +119,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Status 
 This app is currently in development. Feel free to contribute and open a pull request!
 ## Preview
+Here are some snapshots:
+### Chatroom
 ![1](./public/images/1.png)
+### Home
 ![2](./public/images/2.png)
+### Register
 ![3](./public/images/3.png)
