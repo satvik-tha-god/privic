@@ -1,3 +1,4 @@
+//validating register and login of users
 module.exports.validateRegisterInput = (
   username,
   password,

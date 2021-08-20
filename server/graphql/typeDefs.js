@@ -1,3 +1,4 @@
+//type definitions of all of our objects
 const { gql } = require('apollo-server');
 
 module.exports = gql`

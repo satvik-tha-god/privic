@@ -1,3 +1,4 @@
+//check authentication token
 const { AuthenticationError } = require('apollo-server');
 
 const jwt = require('jsonwebtoken');

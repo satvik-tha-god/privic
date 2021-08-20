@@ -1,3 +1,4 @@
+//Posts model
 const { model, Schema } = require('mongoose');
 
 const postSchema = new Schema({

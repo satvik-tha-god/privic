@@ -1,3 +1,4 @@
+//set up privic server
 const { ApolloServer, PubSub } = require('apollo-server');
 const mongoose = require('mongoose');
 
@@ -14,7 +15,7 @@ const server = new ApolloServer({
   resolvers,
   context: ({ req }) => ({ req, pubsub })
 });
-
+//connect to mongodb and run on port
 mongoose
   .connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
