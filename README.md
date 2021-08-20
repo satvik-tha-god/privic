@@ -124,4 +124,4 @@ This app is currently in development. Feel free to contribute and open a pull re
 ### Example 2
 ![2](./public/images/2.png)
 ### Example 3
-![3](./public/images/logo.png)
+![3](./public/images/3.png)
