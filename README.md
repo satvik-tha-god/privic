@@ -1,4 +1,4 @@
-![Landing Page](./app/assets/images/landing-page.png)
+![Logo](./app/assets/images/landing-page.png)
 
 # Privic
 Privic is an anonymous, secure and free social media application. Currently in development.
@@ -119,3 +119,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Status 
 This app is currently in development. Feel free to contribute and open a pull request!
 ## Preview
+![1](./public/images/1.png)
+![2](./public/images/2.png)
+![3](./public/images/3.png)
