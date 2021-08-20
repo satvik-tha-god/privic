@@ -119,3 +119,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Status
 This app is currently in development. Feel free to contribute and open a pull request!
 ## Preview
+### Example 1
+![1](./public/images/1.png)
+### Example 2
+![2](./public/images/2.png)
+### Example 3
+![3](./public/images/logo.png)
