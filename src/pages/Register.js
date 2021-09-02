@@ -6,7 +6,8 @@ import gql from 'graphql-tag';
 
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
-import nameList from './username';
+import nameList from './functions/username';
+import Styles from './css/Register.module.css';
 
 
 function Register(props) {
@@ -57,11 +58,11 @@ function Register(props) {
 
   return (
     <center>
-    <img src="/images/logo.png" alt="logo" style={{height:"200px"}}/>
+    <img src="/images/logo.png" alt="logo" className={Styles.Logo}/>
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
-        <p style={{fontSize: "36px"}}>Welcome  <span style={{color:"teal"}}>{values.username}</span></p>
-        <p style={{fontSize: "18px", marginRight: "150px"}}>Enter an anonymous username:</p>
+        <p className={Styles.Welcome}>Welcome  <span style={{color:"teal"}}>{values.username}</span></p>
+        <p style={{color:"white",fontSize: "18px", marginRight: "150px"}}>Enter an anonymous username:</p>
         <input
           style={inputStyle}
           label="Username"
@@ -75,11 +76,11 @@ function Register(props) {
         />
         <label>Or</label>
         <br/>
-        <Button type="submit" color="teal" basic onClick={generateUser} style={{marginBottom: "10px"}}>
+        <Button type="submit" color="teal" basic onClick={generateUser}>
           Generate
         </Button>
         <br />
-        <p style={{fontSize: "18px", marginRight: "200px"}}>Enter a secure password:</p>
+        <p style={{color:"white",fontSize: "18px", marginRight: "200px"}}>Enter a secure password:</p>
         <input
           style={inputStyle}
           label="Password"
@@ -91,7 +92,7 @@ function Register(props) {
           error={errors.password ? true : false}
           onChange={onChange}
         />
-        <p style={{fontSize: "18px", marginRight: "250px"}}>Confirm password:</p>
+        <p style={{color:"white",fontSize: "18px", marginRight: "250px"}}>Confirm password:</p>
         <input
           style={inputStyle}
           label="Confirm Password"

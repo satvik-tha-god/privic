@@ -8,6 +8,7 @@ import { AuthContext } from '../context/auth';
 import LikeButton from './LikeButton';
 import DeleteButton from './DeleteButton';
 import MyPopup from '../util/MyPopup';
+import Styles from './css/PostCard.module.css';
 
 function PostCard({
   post: { body, createdAt, id, username, likeCount, commentCount, likes }
@@ -15,7 +16,7 @@ function PostCard({
   const { user } = useContext(AuthContext);
 
   return (
-    <div fluid color="teal"  style={{background: "none", border: "2px solid teal", padding: "10px", borderRadius: "5px"}}>
+    <div fluid color="teal" className={Styles.CardContent1}>
       <Card.Content>
         <Image
           floated="left"
@@ -23,11 +24,11 @@ function PostCard({
           src="/images/anonymous-avatar.png"
         />
 
-        <Card.Header style={{color: "white", fontSize: "25px", marginBottom:"3px"}}>{username}</Card.Header>
-        <Card.Meta style={{color: "#727474", fontSize:"16px"}} as={Link} to={`/posts/${id}`}>
+        <Card.Header className={Styles.CardHeader1}>{username}</Card.Header>
+        <Card.Meta className={Styles.CardMeta1} as={Link} to={`/posts/${id}`}>
           {moment(createdAt).fromNow(true)}
         </Card.Meta>
-        <Card.Description style={{color: "teal", padding:"5px", fontSize:"18px"}}>{body}</Card.Description>
+        <Card.Description className={Styles.CardDescription1}>{body}</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <LikeButton user={user} post={{ id, likes, likeCount }}/>

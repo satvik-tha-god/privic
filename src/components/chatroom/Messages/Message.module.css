@@ -1,0 +1,16 @@
+.messageStyle {
+  border: 2px solid teal;
+  background: none;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 700px;
+}
+.Name {
+  color: white;
+  font-size: 18px;
+}
+.Text {
+  color: teal;
+  font-size: 24px;
+}

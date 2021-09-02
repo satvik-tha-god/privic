@@ -1,4 +1,4 @@
-//home page 
+//home page
 import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Grid, Transition } from 'semantic-ui-react';

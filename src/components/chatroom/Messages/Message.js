@@ -23,18 +23,18 @@ const Message = ({ message: { text, user }, name }) => {
     isSentByCurrentUser
       ? (
         <div style={messageStyle}>
-          <p style={{color: "white", fontSize:"18px"}}>{trimmedName}</p>
+          <p style={{color: "teal", fontSize:"24px"}}>{trimmedName}</p>
           <div>
-            <p style={{color: "teal", fontSize:"24px"}}>{text}</p>
+            <p style={{color: "white", fontSize:"18px"}}>{text}</p>
           </div>
         </div>
         )
         : (
           <div style={messageStyle}>
+            <p style={{color: "teal", fontSize:"24px"}}>{user}</p>
             <div>
-              <p style={{color: "teal", fontSize:"24px"}}>{text}</p>
+              <p style={{color: "white", fontSize:"18px"}}>{text}</p>
             </div>
-            <p style={{color: "white", fontSize:"18px"}}>{user}</p>
           </div>
         )
   );

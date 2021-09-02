@@ -17,6 +17,7 @@ import { AuthContext } from '../context/auth';
 import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
 import MyPopup from '../util/MyPopup';
+import Styles from './css/SinglePost.module.css';
 
 function SinglePost(props) {
   const postId = props.match.params.postId;
@@ -80,11 +81,11 @@ function SinglePost(props) {
             />
           </Grid.Column>
           <Grid.Column width={10}>
-            <div fluid style={{background: "none", border: "2px solid teal", padding: "10px", borderRadius: "5px"}}>
+            <div fluid className={Styles.CardContent1}>
               <Card.Content>
-                <Card.Header style={{color:"teal"}}>{username}</Card.Header>
-                <Card.Meta style={{color:"#727474"}}>{moment(createdAt).fromNow()}</Card.Meta>
-                <Card.Description style={{color:"white"}}>{body}</Card.Description>
+                <Card.Header className={Styles.CardHeader1}>{username}</Card.Header>
+                <Card.Meta className={Styles.CardMeta1}>{moment(createdAt).fromNow()}</Card.Meta>
+                <Card.Description className={Styles.CardDescription1}>{body}</Card.Description>
               </Card.Content>
               <hr />
               <Card.Content extra>
@@ -109,13 +110,13 @@ function SinglePost(props) {
               </Card.Content>
             </div>
             {user && (
-              <div fluid style={{background: "none", border: "2px solid teal", padding: "10px", borderRadius: "5px", marginTop:"20px"}}>
+              <div fluid className={Styles.CardContent2}>
                 <Card.Content>
                   <p>Post a comment</p>
                   <Form>
                     <div className="ui action input fluid">
                       <input
-                      style={inputStyle}
+                        style={inputStyle}
                         type="text"
                         placeholder="Comment.."
                         name="comment"
@@ -126,8 +127,7 @@ function SinglePost(props) {
                       <Button
                         type="submit"
                         basic
-                        style={{background: "none"}}
-                        className="ui button teal"
+                        className={"ui button teal "+Styles.Button}
                         disabled={comment.trim() === ''}
                         onClick={submitComment}
                       >
@@ -139,14 +139,14 @@ function SinglePost(props) {
               </div>
             )}
             {comments.map((comment) => (
-              <div fluid key={comment.id} style={{background: "none", border: "2px solid teal", padding: "10px", borderRadius: "5px", marginTop:"20px"}}>
+              <div fluid key={comment.id}>
                 <Card.Content>
                   {user && user.username === comment.username && (
                     <DeleteButton postId={id} commentId={comment.id} />
                   )}
-                  <Card.Header style={{color:"teal"}}>{comment.username}</Card.Header>
-                  <Card.Meta style={{color:"#727474"}}>{moment(comment.createdAt).fromNow()}</Card.Meta>
-                  <Card.Description style={{color:"white"}}>{comment.body}</Card.Description>
+                  <Card.Header className={Styles.CardHeader1}>{comment.username}</Card.Header>
+                  <Card.Meta className={Styles.CardMeta1}>{moment(comment.createdAt).fromNow()}</Card.Meta>
+                  <Card.Description className={Styles.CardDescription1}>{comment.body}</Card.Description>
                 </Card.Content>
               </div>
             ))}

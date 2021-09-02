@@ -1,38 +1,19 @@
 //for the chat menu
 import React from "react";
 import { Link } from "react-router-dom";
+import Styles from './css/MainChat.module.css';
+
 function MainChat() {
-
-  const chatButtonCreate = {
-    color: "teal",
-    background: "none",
-    border: "1px solid teal",
-    marginBottom: "20px",
-    borderRadius: "3px",
-    fontSize: "18px",
-    padding: "10px 15px"
-  }
-
-  const chatButtonJoin = {
-    color: "teal",
-    background: "none",
-    border: "1px solid teal",
-    marginBottom: "20px",
-    borderRadius: "3px",
-    fontSize: "18px",
-    padding: "10px 70px"
-  }
-
 
   return (
     <div>
       <center>
-        <img src="/images/logo.png" alt="logo" style={{height:"200px"}}/>
+        <img src="/images/logo.png" alt="logo" className={Styles.Logo}/>
         <form>
-          <h1>Welcome to chatroom:</h1>
-          <Link to="/create"><button style={chatButtonCreate}>Create your own chatroom</button></Link>
+          <h1 style={{color: "white"}}>Welcome to chatroom:</h1>
+          <Link to="/create"><button className={Styles.chatButtonCreate}>Create your own chatroom</button></Link>
           <br></br>
-          <Link to="/join"><button style={chatButtonJoin}>
+          <Link to="/join"><button className={Styles.chatButtonJoin}>
             Join Existing
           </button></Link>
         </form>

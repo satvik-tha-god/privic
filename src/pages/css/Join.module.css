@@ -1,0 +1,18 @@
+.chatButtonCreate{
+  color: teal;
+  background: none;
+  border: 1px solid teal;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 10px 15px;
+}
+.inputStyle{
+  background: none;
+  border: 1px solid teal;
+  color: teal;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}

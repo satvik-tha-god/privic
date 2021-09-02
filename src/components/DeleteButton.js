@@ -6,6 +6,7 @@ import { Button, Confirm, Icon } from 'semantic-ui-react';
 
 import { FETCH_POSTS_QUERY } from '../util/graphql';
 import MyPopup from '../util/MyPopup';
+import Styles from './css/DeleteButton.module.css';
 
 function DeleteButton({ postId, commentId, callback }) {
 
@@ -37,7 +38,7 @@ function DeleteButton({ postId, commentId, callback }) {
           floated="right"
           onClick={deletePostOrMutation}
         >
-          <Icon name="trash" style={{ margin: 0 }} />
+          <Icon name="trash" className={Styles.trash} />
         </Button>
       </MyPopup>
       <Confirm />

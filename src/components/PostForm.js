@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { useForm } from '../util/hooks';
 import { FETCH_POSTS_QUERY } from '../util/graphql';
+import Styles from './css/PostForm.module.css';
 
 function PostForm() {
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
@@ -30,13 +31,14 @@ function PostForm() {
   return (
     <>
       <center>
-      <Form onSubmit={onSubmit} style={{maxWidth: "1000px", marginBottom:"20px"}}>
-        <p style={{fontSize: "36px"}}>What's on your mind today?</p>
+      <Form onSubmit={onSubmit} className={Styles.Form}>
+        <p className={Styles.OnYourMind}>What's on your mind today?</p>
         <Form.Field>
           <textarea
             rows="5"
             cols="90"
             style={{background: "none", border: "2px solid teal", marginBottom: "20px",color:"teal", fontSize:"18px"}}
+            className={Styles.TextArea}
             center
             placeholder="Post something"
             name="body"

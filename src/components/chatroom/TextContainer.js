@@ -1,23 +1,18 @@
 //container for chatrrom info
 import React from 'react';
+import Styles from './css/TextContainer.module.css';
 
-const containerStyle={
-  position: "absolute",
-  top: "100px",
-  left: "1170px"
-
-}
 const TextContainer = ({ users, room }) => (
-  <div style={containerStyle}>
+  <div className={Styles.containerStyle}>
     {
       users
         ? (
           <div>
             <h1>Room id: </h1>
-            <h2 style={{color: "teal"}}>{room}</h2>
+            <h2 className={Styles.Color}>{room}</h2>
             <h1>People currently chatting:</h1>
             <div>
-              <h2 style={{color: "teal"}}>
+              <h2 className={Styles.Color}>
                 {users.map(({name}) => (
                   <div key={name}>
                     {name}
