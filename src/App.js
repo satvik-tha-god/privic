@@ -18,7 +18,6 @@ import Join from './pages/Join';
 import Create from './pages/Create';
 import MainChat from './pages/MainChat';
 
-// Testing
 function App() {
 
   const logoStyle = {
