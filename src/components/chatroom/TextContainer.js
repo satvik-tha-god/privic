@@ -8,9 +8,9 @@ const TextContainer = ({ users, room }) => (
       users
         ? (
           <div>
-            <h1>Room id: </h1>
+            <h1 style={{color: "white"}}>Room id: </h1>
             <h2 className={Styles.Color}>{room}</h2>
-            <h1>People currently chatting:</h1>
+            <h1 style={{color: "white"}}>People currently chatting:</h1>
             <div>
               <h2 className={Styles.Color}>
                 {users.map(({name}) => (

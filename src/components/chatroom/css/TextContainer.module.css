@@ -3,6 +3,12 @@
   top: 100px;
   left: 1170px;
 }
+
+@media (max-width: 1350px) {
+  .containerStyle {
+    display: none;
+  }
+}
 .Color {
   color: teal;
 }
