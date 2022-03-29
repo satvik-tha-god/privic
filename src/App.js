@@ -21,18 +21,12 @@ import MainChat from './pages/MainChat';
 // Testing
 function App() {
 
-  const logoStyle = {
-    position: "fixed",
-    top: "0px",
-    left: "0px",
-    height:"150px"
-  }
   //App router
   return (
     <AuthProvider>
       <Router>
         <Container>
-          <img src="/images/logo.png" alt="logo" style={logoStyle}/>
+          <img src="/images/logo.png" alt="logo" className='logo-style'/>
           <MenuBar />
           <Route exact path="/" component={Home} />
           <AuthRoute exact path="/login" component={Login} />

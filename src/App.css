@@ -14,6 +14,19 @@ body{
   margin-top: 10px;
 }
 
+.logo-style {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 150px;
+}
+
+@media (max-width: 1700px) {
+  .logo-style {
+    display: none;
+  }
+}
+
 .form-container {
   width: 400px;
   margin: auto;

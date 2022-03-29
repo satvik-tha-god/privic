@@ -6,6 +6,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { useForm } from '../util/hooks';
 import { FETCH_POSTS_QUERY } from '../util/graphql';
 import Styles from './css/PostForm.module.css';
+import { textArea } from './css-js/PostForm.module.css';
 
 function PostForm() {
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
@@ -37,7 +38,7 @@ function PostForm() {
           <textarea
             rows="5"
             cols="90"
-            style={{background: "none", border: "2px solid teal", marginBottom: "20px",color:"teal", fontSize:"18px"}}
+            style={textArea}
             className={Styles.TextArea}
             center
             placeholder="Post something"

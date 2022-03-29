@@ -18,7 +18,7 @@ import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
 import MyPopup from '../util/MyPopup';
 import Styles from './css/SinglePost.module.css';
-import { postComment } from './css-js/SinglePost.module.css';
+import { inputStyle, postComment } from './css-js/SinglePost.module.css';
 import { loadingStyle } from './css-js/Home.module.css';
 
 function SinglePost(props) {
@@ -66,11 +66,6 @@ function SinglePost(props) {
       commentCount
     } = getPost;
 
-    const inputStyle = {
-      background: "none",
-      border: "1px solid teal",
-      color: "teal"
-    }
 
     postMarkup = (
       <Grid>
@@ -141,7 +136,7 @@ function SinglePost(props) {
               </div>
             )}
             {comments.map((comment) => (
-              <div fluid key={comment.id}>
+              <div style={{margin: "4px"}} fluid key={comment.id}>
                 <Card.Content>
                   {user && user.username === comment.username && (
                     <DeleteButton postId={id} commentId={comment.id} />
