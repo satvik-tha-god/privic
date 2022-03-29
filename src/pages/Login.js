@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
 import Styles from './css/Login.module.css';
+import { inputStyle, labelStyle } from './css-js/Login.module.css';
 
 function Login(props) {
   const context = useContext(AuthContext);
@@ -36,17 +37,7 @@ function Login(props) {
   function loginUserCallback() {
     loginUser();
   }
-  const inputStyle = {
-    background: "none",
-    border: "1px solid teal",
-    color: "teal",
-    marginBottom: "10px"
-  }
-  const labelStyle = {
-    fontSize: "18px",
-    marginRight: "230px",
-    color: "white"
-  }
+
   return (
     <center>
     <img src="/images/logo.png" alt="logo" className={Styles.Logo} />
