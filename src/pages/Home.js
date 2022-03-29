@@ -7,6 +7,7 @@ import { AuthContext } from '../context/auth';
 import PostCard from '../components/PostCard';
 import PostForm from '../components/PostForm';
 import { FETCH_POSTS_QUERY } from '../util/graphql';
+import { loadingStyle } from './css-js/Home.module.css';
 
 function Home() {
   const { user } = useContext(AuthContext);
@@ -26,7 +27,7 @@ function Home() {
           </Grid.Column>
         )}
         {loading ? (
-          <h1>Loading posts..</h1>
+          <h1 style={loadingStyle}>Loading posts..</h1>
         ) : (
           <Transition.Group>
             {posts &&

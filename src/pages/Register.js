@@ -8,7 +8,7 @@ import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
 import nameList from './functions/username';
 import Styles from './css/Register.module.css';
-
+import { labelStyle, inputStyle, enterUsername, securePassword } from './css-js/Register.module.css'
 
 function Register(props) {
 
@@ -49,20 +49,13 @@ function Register(props) {
     addUser();
   }
 
-  const inputStyle = {
-    background: "none",
-    border: "1px solid teal",
-    color: "teal",
-    marginBottom: "15px"
-  }
-
   return (
     <center>
     <img src="/images/logo.png" alt="logo" className={Styles.Logo}/>
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
         <p className={Styles.Welcome}>Welcome  <span style={{color:"teal"}}>{values.username}</span></p>
-        <p style={{color:"white",fontSize: "18px", marginRight: "150px"}}>Enter an anonymous username:</p>
+        <p style={enterUsername}>Enter an anonymous username:</p>
         <input
           style={inputStyle}
           label="Username"
@@ -74,13 +67,13 @@ function Register(props) {
           error={errors.username ? true : false}
           onChange={onChange}
         />
-        <label>Or</label>
+        <label style={labelStyle}>Or</label>
         <br/>
         <Button type="submit" color="teal" basic onClick={generateUser}>
           Generate
         </Button>
         <br />
-        <p style={{color:"white",fontSize: "18px", marginRight: "200px"}}>Enter a secure password:</p>
+        <p style={securePassword}>Enter a secure password:</p>
         <input
           style={inputStyle}
           label="Password"
@@ -92,7 +85,7 @@ function Register(props) {
           error={errors.password ? true : false}
           onChange={onChange}
         />
-        <p style={{color:"white",fontSize: "18px", marginRight: "250px"}}>Confirm password:</p>
+        <p style={securePassword}>Confirm password:</p>
         <input
           style={inputStyle}
           label="Confirm Password"

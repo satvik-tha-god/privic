@@ -18,6 +18,8 @@ import LikeButton from '../components/LikeButton';
 import DeleteButton from '../components/DeleteButton';
 import MyPopup from '../util/MyPopup';
 import Styles from './css/SinglePost.module.css';
+import { postComment } from './css-js/SinglePost.module.css';
+import { loadingStyle } from './css-js/Home.module.css';
 
 function SinglePost(props) {
   const postId = props.match.params.postId;
@@ -51,7 +53,7 @@ function SinglePost(props) {
 
   let postMarkup;
   if (!getPost) {
-    postMarkup = <p>Loading post..</p>;
+    postMarkup = <p style={loadingStyle}>Loading post..</p>;
   } else {
     const {
       id,
@@ -112,7 +114,7 @@ function SinglePost(props) {
             {user && (
               <div fluid className={Styles.CardContent2}>
                 <Card.Content>
-                  <p>Post a comment</p>
+                  <p style={postComment}>Post a comment</p>
                   <Form>
                     <div className="ui action input fluid">
                       <input
