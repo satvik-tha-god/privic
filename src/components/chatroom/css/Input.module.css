@@ -3,7 +3,8 @@
   background: none;
   border: 1px solid teal;
   border-radius: 5px;
-  width: 650px;
+  width: 60%;
+  max-width:650px;
   font-size: 18px;
   padding: 5px;
   position: absolute;
@@ -19,4 +20,28 @@
   position: absolute;
   bottom: 10px;
   left: 1050px;
+}
+
+@media (min-width: 300px) and (max-width: 800px) {
+  .buttonStyle {
+    left: 65%;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1050px) {
+  .buttonStyle {
+    left: 700px;
+  }
+}
+
+@media (min-width: 1051px) and (max-width: 1300px) {
+  .buttonStyle {
+    left: 800px;
+  }
+}
+
+@media (min-width: 1301px) and (max-width: 1500px) {
+  .buttonStyle {
+    left: 900px;
+  }
 }
