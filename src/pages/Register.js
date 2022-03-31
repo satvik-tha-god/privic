@@ -1,6 +1,6 @@
 //register page
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Image } from 'semantic-ui-react';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
@@ -8,7 +8,7 @@ import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
 import nameList from './functions/username';
 import Styles from './css/Register.module.css';
-import { labelStyle, inputStyle, enterUsername, securePassword } from './css-js/Register.module.css'
+import { labelStyle, inputStyle, enterUsername, securePassword, confirmPassword } from './css-js/Register.module.css'
 
 function Register(props) {
 
@@ -52,6 +52,11 @@ function Register(props) {
   return (
     <center>
     <img src="/images/logo.png" alt="logo" className={Styles.Logo}/>
+    <Image
+              src={`https://avatars.dicebear.com/api/micah/${values.username}.svg`}
+              size="small"
+              float="center"
+    />
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
         <p className={Styles.Welcome}>Welcome  <span style={{color:"teal"}}>{values.username}</span></p>
@@ -69,7 +74,7 @@ function Register(props) {
         />
         <label style={labelStyle}>Or</label>
         <br/>
-        <Button type="submit" color="teal" basic onClick={generateUser}>
+        <Button color="teal" basic onClick={generateUser}>
           Generate
         </Button>
         <br />
@@ -85,7 +90,7 @@ function Register(props) {
           error={errors.password ? true : false}
           onChange={onChange}
         />
-        <p style={securePassword}>Confirm password:</p>
+        <p style={confirmPassword}>Confirm password:</p>
         <input
           style={inputStyle}
           label="Confirm Password"

@@ -72,7 +72,7 @@ function SinglePost(props) {
         <Grid.Row>
           <Grid.Column width={2}>
             <Image
-              src="/images/anonymous-avatar.png"
+              src={`https://avatars.dicebear.com/api/micah/${username}.svg`}
               size="small"
               float="right"
             />

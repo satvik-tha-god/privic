@@ -21,7 +21,7 @@ function PostCard({
         <Image
           floated="left"
           size="mini"
-          src="/images/anonymous-avatar.png"
+          src={`https://avatars.dicebear.com/api/micah/${username}.svg`}
         />
 
         <Card.Header className={Styles.CardHeader1}>{username}</Card.Header>
