@@ -7,8 +7,7 @@ import gql from 'graphql-tag';
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
 import nameList from './functions/username';
-import Styles from './css/Register.module.css';
-import { labelStyle, inputStyle, enterUsername, securePassword, confirmPassword } from './css-js/Register.module.css'
+import { labelStyle, inputStyle, enterUsername, securePassword, confirmPassword, Logo, Welcome, welcomeSpan, errorStyle } from './css-js/Register.module.css'
 
 function Register(props) {
 
@@ -51,7 +50,7 @@ function Register(props) {
 
   return (
     <center>
-    <img src="/images/logo.png" alt="logo" className={Styles.Logo}/>
+    <img src="/images/logo.png" alt="logo" style={Logo}/>
     <Image
               src={`https://avatars.dicebear.com/api/micah/${values.username}.svg`}
               size="small"
@@ -59,7 +58,7 @@ function Register(props) {
     />
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
-        <p className={Styles.Welcome}>Welcome  <span style={{color:"teal"}}>{values.username}</span></p>
+        <p style={Welcome}>Welcome  <span style={welcomeSpan}>{values.username}</span></p>
         <p style={enterUsername}>Enter an anonymous username:</p>
         <input
           style={inputStyle}
@@ -106,7 +105,7 @@ function Register(props) {
         </Button>
       </Form>
       {Object.keys(errors).length > 0 && (
-        <div className="ui error message" style={{background: "none"}}>
+        <div className="ui error message" style={errorStyle}>
           <ul className="list">
             {Object.values(errors).map((value) => (
               <li key={value}>{value}</li>

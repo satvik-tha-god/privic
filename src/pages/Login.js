@@ -6,8 +6,7 @@ import gql from 'graphql-tag';
 
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
-import Styles from './css/Login.module.css';
-import { inputStyle, labelStyle } from './css-js/Login.module.css';
+import { inputStyle, labelStyle, Logo, WelcomeBack, FormContainer, WelcomeBackSpan } from './css-js/Login.module.css';
 
 function Login(props) {
   const context = useContext(AuthContext);
@@ -40,11 +39,11 @@ function Login(props) {
 
   return (
     <center>
-    <img src="/images/logo.png" alt="logo" className={Styles.Logo} />
-    <div className={"form-container "+ Styles.FormContainer}>
+    <img src="/images/logo.png" alt="logo" style={Logo} />
+    <div className="form-container" style={FormContainer}>
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
 
-        <p className={Styles.WelcomeBack}>Welcome back, <span style={{color: "teal"}}>{values.username}</span> </p>
+        <p style={WelcomeBack}>Welcome back, <span style={WelcomeBackSpan}>{values.username}</span> </p>
         <p style={labelStyle}> Enter your username: </p>
         <input
           style={inputStyle}
@@ -56,7 +55,6 @@ function Login(props) {
           value={values.username}
           error={errors.username ? true : false}
           onChange={onChange}
-          className= {Styles.inputStyle}
         />
         <p style={labelStyle}> Enter your password: </p>
         <input

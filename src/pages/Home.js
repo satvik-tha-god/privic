@@ -7,7 +7,7 @@ import { AuthContext } from '../context/auth';
 import PostCard from '../components/PostCard';
 import PostForm from '../components/PostForm';
 import { FETCH_POSTS_QUERY } from '../util/graphql';
-import { loadingStyle } from './css-js/Home.module.css';
+import { homePage, loadingStyle, postMargin } from './css-js/Home.module.css';
 
 function Home() {
   const { user } = useContext(AuthContext);
@@ -17,7 +17,7 @@ function Home() {
   } = useQuery(FETCH_POSTS_QUERY);
 
   return (
-    <Grid columns={1} style={{maxWidth: "1000px"}}>
+    <Grid columns={1} style={homePage}>
       <Grid.Row className="page-title">
       </Grid.Row>
       <Grid.Row>
@@ -32,7 +32,7 @@ function Home() {
           <Transition.Group>
             {posts &&
               posts.map((post) => (
-                <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
+                <Grid.Column key={post.id} style={postMargin}>
                   <PostCard post={post} />
                 </Grid.Column>
               ))}

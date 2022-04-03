@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import pinstring from "./functions/pin.js"
-import Styles from './css/Create.module.css';
+import { inputStyle, chatButtonCreate, createTitle } from './css-js/Create.module.css.js';
 
 export default function Create() {
   const [name, setName] = useState('');
@@ -12,15 +12,15 @@ export default function Create() {
     <div>
       <div>
         <center>
-        <h1 style={{color: "white"}}>Create</h1>
+        <h1 style={createTitle}>Create</h1>
         <div>
-          <input className={Styles.inputStyle} placeholder="Name" type="text" onChange={(event) => setName(event.target.value)} />
+          <input style={inputStyle} placeholder="Name" type="text" onChange={(event) => setName(event.target.value)} />
         </div>
         <div>
-          <input className={Styles.inputStyle} placeholder="Room" type="text" value={room} />
+          <input style={inputStyle} placeholder="Room" type="text" value={room} />
         </div>
         <Link onClick={e => (!name || !room) ? e.preventDefault() : null} to={`/join/chat?name=${name}&room=${room}`}>
-          <button className={Styles.chatButtonCreate} type="submit">Create</button>
+          <button style={chatButtonCreate} type="submit">Create</button>
         </Link>
         </center>
       </div>

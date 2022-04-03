@@ -10,3 +10,21 @@ exports.labelStyle = {
     marginRight: "230px",
     color: "white"
   }
+
+exports.WelcomeBack = {
+  fontSize: "36px",
+  marginRight: "160px",
+  color: "white"
+}
+
+exports.Logo = {
+    height: "200px"
+}
+
+exports.FormContainer = {
+    maxWidth: "400px"
+}
+
+exports.WelcomeBackSpan = {
+    color: "teal"
+}

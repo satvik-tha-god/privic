@@ -4,7 +4,7 @@ import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 // eslint-disable-next-line
-import Styles from './css/MenuBar.module.css';
+import { menuColor } from './css-js/MenuBar.module.css';
 
 function MenuBar() {
   const { user, logout } = useContext(AuthContext);
@@ -17,9 +17,9 @@ function MenuBar() {
 
   const menuBar = user ? (
     <Menu pointing secondary size="massive" color="teal" className="Menu" >
-      <Menu.Item style={{color: "white"}} name={user.username} active as={Link} to="/" />
+      <Menu.Item style={menuColor} name={user.username} active as={Link} to="/" />
       <Menu.Item
-      style={{color: "white"}}
+      style={menuColor}
       name="chatroom"
       active={activeItem === 'chatroom'}
       onClick={handleItemClick}
@@ -28,14 +28,14 @@ function MenuBar() {
       />
 
       <Menu.Menu position="right">
-        <Menu.Item style={{color: "white"}}  name="logout" onClick={logout} as={Link} to="/"/>
+        <Menu.Item style={menuColor}  name="logout" onClick={logout} as={Link} to="/"/>
       </Menu.Menu>
     </Menu>
   ) : (
     <Menu pointing secondary size="massive" color="teal">
       <Menu.Item
         name="home"
-        style={{color: "white"}}
+        style={menuColor}
         active={activeItem === 'home'}
         onClick={handleItemClick}
         as={Link}
@@ -46,7 +46,7 @@ function MenuBar() {
       <Menu.Menu position="right">
         <Menu.Item
           name="login"
-          style={{color: "white"}}
+          style={menuColor}
           active={activeItem === 'login'}
           onClick={handleItemClick}
           as={Link}
@@ -54,7 +54,7 @@ function MenuBar() {
         />
         <Menu.Item
           name="register"
-          style={{color: "white"}}
+          style={menuColor}
           active={activeItem === 'register'}
           onClick={handleItemClick}
           as={Link}

@@ -31,3 +31,19 @@ exports.confirmPassword = {
     "250px"
 }
 
+exports.Logo = {
+    height: "200px"
+}
+
+exports.Welcome = {
+    fontSize: "36px",
+    color: "white"
+}
+
+exports.welcomeSpan = {
+    color:"teal"
+}
+
+exports.errorStyle = {
+    background: "none"
+}
