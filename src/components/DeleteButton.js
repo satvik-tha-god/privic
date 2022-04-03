@@ -1,22 +1,21 @@
 //delete button component
-import React from 'react';
-import gql from 'graphql-tag';
-import { useMutation } from '@apollo/react-hooks';
-import { Button, Confirm, Icon } from 'semantic-ui-react';
+import React from "react";
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/react-hooks";
+import { Button, Confirm, Icon } from "semantic-ui-react";
 
-import { FETCH_POSTS_QUERY } from '../util/graphql';
-import MyPopup from '../util/MyPopup';
-import { trash } from './css-js/Buttons.module.css'
+import { FETCH_POSTS_QUERY } from "../util/graphql";
+import MyPopup from "../util/MyPopup";
+import { trash } from "./css-js/Buttons.module.css";
 
 function DeleteButton({ postId, commentId, callback }) {
-
   const mutation = commentId ? DELETE_COMMENT_MUTATION : DELETE_POST_MUTATION;
 
   const [deletePostOrMutation] = useMutation(mutation, {
     update(proxy) {
       if (!commentId) {
         const data = proxy.readQuery({
-          query: FETCH_POSTS_QUERY
+          query: FETCH_POSTS_QUERY,
         });
         data.getPosts = data.getPosts.filter((p) => p.id !== postId);
         proxy.writeQuery({ query: FETCH_POSTS_QUERY, data });
@@ -25,20 +24,19 @@ function DeleteButton({ postId, commentId, callback }) {
     },
     variables: {
       postId,
-      commentId
-    }
+      commentId,
+    },
   });
   return (
     <>
-      <MyPopup content={commentId ? 'Delete comment' : 'Delete post'}>
+      <MyPopup content={commentId ? "Delete comment" : "Delete post"}>
         <Button
-          as="div"
-          color="red"
+          as='div'
+          color='red'
           basic
-          floated="right"
-          onClick={deletePostOrMutation}
-        >
-          <Icon name="trash" style={trash} />
+          floated='right'
+          onClick={deletePostOrMutation}>
+          <Icon name='trash' style={trash} />
         </Button>
       </MyPopup>
       <Confirm />

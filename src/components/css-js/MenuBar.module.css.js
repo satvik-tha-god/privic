@@ -1,3 +1,3 @@
 exports.menuColor = {
-    color: "white"
-}
+  color: "white",
+};

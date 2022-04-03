@@ -1,8 +1,7 @@
 exports.label = {
-    background: "none"
-  }
+  background: "none",
+};
 
 exports.trash = {
-    background: "none"
-  }
-  
+  background: "none",
+};

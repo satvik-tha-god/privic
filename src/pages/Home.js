@@ -1,25 +1,24 @@
 //home page
-import React, { useContext } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { Grid, Transition } from 'semantic-ui-react';
+import React, { useContext } from "react";
+import { useQuery } from "@apollo/react-hooks";
+import { Grid, Transition } from "semantic-ui-react";
 
-import { AuthContext } from '../context/auth';
-import PostCard from '../components/PostCard';
-import PostForm from '../components/PostForm';
-import { FETCH_POSTS_QUERY } from '../util/graphql';
-import { homePage, loadingStyle, postMargin } from './css-js/Home.module.css';
+import { AuthContext } from "../context/auth";
+import PostCard from "../components/PostCard";
+import PostForm from "../components/PostForm";
+import { FETCH_POSTS_QUERY } from "../util/graphql";
+import { homePage, loadingStyle, postMargin } from "./css-js/Home.module.css";
 
 function Home() {
   const { user } = useContext(AuthContext);
   const {
     loading,
-    data: { getPosts: posts }
+    data: { getPosts: posts },
   } = useQuery(FETCH_POSTS_QUERY);
 
   return (
     <Grid columns={1} style={homePage}>
-      <Grid.Row className="page-title">
-      </Grid.Row>
+      <Grid.Row className='page-title'></Grid.Row>
       <Grid.Row>
         {user && (
           <Grid.Column>

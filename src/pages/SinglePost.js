@@ -1,8 +1,8 @@
 //single post page
-import React, { useContext, useState, useRef } from 'react';
-import gql from 'graphql-tag';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import moment from 'moment';
+import React, { useContext, useState, useRef } from "react";
+import gql from "graphql-tag";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import moment from "moment";
 import {
   Button,
   Card,
@@ -10,44 +10,54 @@ import {
   Grid,
   Image,
   Icon,
-  Label
-} from 'semantic-ui-react';
+  Label,
+} from "semantic-ui-react";
 
-import { AuthContext } from '../context/auth';
-import LikeButton from '../components/LikeButton';
-import DeleteButton from '../components/DeleteButton';
-import MyPopup from '../util/MyPopup';
-import { inputStyle, postComment, CardContent1, CardContent2, CardHeader1, CardMeta1, CardDescription1, Button1, commentStyle } from './css-js/SinglePost.module.css';
-import { loadingStyle } from './css-js/Home.module.css';
+import { AuthContext } from "../context/auth";
+import LikeButton from "../components/LikeButton";
+import DeleteButton from "../components/DeleteButton";
+import MyPopup from "../util/MyPopup";
+import {
+  inputStyle,
+  postComment,
+  CardContent1,
+  CardContent2,
+  CardHeader1,
+  CardMeta1,
+  CardDescription1,
+  Button1,
+  commentStyle,
+} from "./css-js/SinglePost.module.css";
+import { loadingStyle } from "./css-js/Home.module.css";
 
 function SinglePost(props) {
   const postId = props.match.params.postId;
   const { user } = useContext(AuthContext);
   const commentInputRef = useRef(null);
 
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
 
   const {
-    data: { getPost }
+    data: { getPost },
   } = useQuery(FETCH_POST_QUERY, {
     variables: {
-      postId
-    }
+      postId,
+    },
   });
 
   const [submitComment] = useMutation(SUBMIT_COMMENT_MUTATION, {
     update() {
-      setComment('');
+      setComment("");
       commentInputRef.current.blur();
     },
     variables: {
       postId,
-      body: comment
-    }
+      body: comment,
+    },
   });
 
   function deletePostCallback() {
-    props.history.push('/');
+    props.history.push("/");
   }
 
   let postMarkup;
@@ -62,9 +72,8 @@ function SinglePost(props) {
       comments,
       likes,
       likeCount,
-      commentCount
+      commentCount,
     } = getPost;
-
 
     postMarkup = (
       <Grid>
@@ -72,30 +81,33 @@ function SinglePost(props) {
           <Grid.Column width={2}>
             <Image
               src={`https://avatars.dicebear.com/api/micah/${username}.svg`}
-              size="medium"
-              float="right"
+              size='medium'
+              float='right'
             />
           </Grid.Column>
           <Grid.Column width={10}>
             <div fluid style={CardContent1}>
               <Card.Content>
                 <Card.Header style={CardHeader1}>{username}</Card.Header>
-                <Card.Meta style={CardMeta1}>{moment(createdAt).fromNow()}</Card.Meta>
-                <Card.Description style={CardDescription1}>{body}</Card.Description>
+                <Card.Meta style={CardMeta1}>
+                  {moment(createdAt).fromNow()}
+                </Card.Meta>
+                <Card.Description style={CardDescription1}>
+                  {body}
+                </Card.Description>
               </Card.Content>
               <hr />
               <Card.Content extra>
                 <LikeButton user={user} post={{ id, likeCount, likes }} />
-                <MyPopup content="Comment on post">
+                <MyPopup content='Comment on post'>
                   <Button
-                    as="div"
-                    labelPosition="right"
-                    onClick={() => console.log('Comment on post')}
-                  >
-                    <Button color="teal" basic>
-                      <Icon name="comments" />
+                    as='div'
+                    labelPosition='right'
+                    onClick={() => console.log("Comment on post")}>
+                    <Button color='teal' basic>
+                      <Icon name='comments' />
                     </Button>
-                    <Label color="teal" pointing="left">
+                    <Label color='teal' pointing='left'>
                       {commentCount}
                     </Label>
                   </Button>
@@ -110,24 +122,23 @@ function SinglePost(props) {
                 <Card.Content>
                   <p style={postComment}>Post a comment</p>
                   <Form>
-                    <div className="ui action input fluid">
+                    <div className='ui action input fluid'>
                       <input
                         style={inputStyle}
-                        type="text"
-                        placeholder="Comment.."
-                        name="comment"
+                        type='text'
+                        placeholder='Comment..'
+                        name='comment'
                         value={comment}
                         onChange={(event) => setComment(event.target.value)}
                         ref={commentInputRef}
                       />
                       <Button
-                        type="submit"
+                        type='submit'
                         basic
-                        className="ui button teal "
+                        className='ui button teal '
                         style={Button1}
-                        disabled={comment.trim() === ''}
-                        onClick={submitComment}
-                      >
+                        disabled={comment.trim() === ""}
+                        onClick={submitComment}>
                         Submit
                       </Button>
                     </div>
@@ -141,9 +152,15 @@ function SinglePost(props) {
                   {user && user.username === comment.username && (
                     <DeleteButton postId={id} commentId={comment.id} />
                   )}
-                  <Card.Header style={CardHeader1}>{comment.username}</Card.Header>
-                  <Card.Meta style={CardMeta1}>{moment(comment.createdAt).fromNow()}</Card.Meta>
-                  <Card.Description style={CardDescription1}>{comment.body}</Card.Description>
+                  <Card.Header style={CardHeader1}>
+                    {comment.username}
+                  </Card.Header>
+                  <Card.Meta style={CardMeta1}>
+                    {moment(comment.createdAt).fromNow()}
+                  </Card.Meta>
+                  <Card.Description style={CardDescription1}>
+                    {comment.body}
+                  </Card.Description>
                 </Card.Content>
               </div>
             ))}
@@ -156,7 +173,7 @@ function SinglePost(props) {
 }
 
 const SUBMIT_COMMENT_MUTATION = gql`
-  mutation($postId: String!, $body: String!) {
+  mutation ($postId: String!, $body: String!) {
     createComment(postId: $postId, body: $body) {
       id
       comments {
@@ -171,7 +188,7 @@ const SUBMIT_COMMENT_MUTATION = gql`
 `;
 
 const FETCH_POST_QUERY = gql`
-  query($postId: ID!) {
+  query ($postId: ID!) {
     getPost(postId: $postId) {
       id
       body

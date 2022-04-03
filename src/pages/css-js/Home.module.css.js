@@ -1,12 +1,12 @@
 exports.loadingStyle = {
-    color: "white",
-    fontSize: "36px"
-}
+  color: "white",
+  fontSize: "36px",
+};
 
 exports.homePage = {
-    maxWidth: "1000px"
-}
+  maxWidth: "1000px",
+};
 
-exports.postMargin = { 
-    marginBottom: 20 
-}
+exports.postMargin = {
+  marginBottom: 20,
+};

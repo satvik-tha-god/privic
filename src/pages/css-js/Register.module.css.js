@@ -1,49 +1,48 @@
 exports.labelStyle = {
-    color:"white",
-    fontSize: "18px",
-    marginTop: "4px",
-    marginBottom: "4px"
-}
+  color: "white",
+  fontSize: "18px",
+  marginTop: "4px",
+  marginBottom: "4px",
+};
 
 exports.inputStyle = {
-    background: "none",
-    border: "1px solid teal",
-    color: "teal",
-    marginBottom: "15px"
-}
+  background: "none",
+  border: "1px solid teal",
+  color: "teal",
+  marginBottom: "15px",
+};
 
 exports.enterUsername = {
-    color:"white",
-    fontSize: "18px", 
-    marginRight: "150px"
-}
+  color: "white",
+  fontSize: "18px",
+  marginRight: "150px",
+};
 
 exports.securePassword = {
-    color:"white",
-    fontSize: "18px", 
-    marginRight: "200px"
-}
+  color: "white",
+  fontSize: "18px",
+  marginRight: "200px",
+};
 
 exports.confirmPassword = {
-    color:"white",
-    fontSize: "18px", 
-    marginRight: 
-    "250px"
-}
+  color: "white",
+  fontSize: "18px",
+  marginRight: "250px",
+};
 
 exports.Logo = {
-    height: "200px"
-}
+  height: "200px",
+};
 
 exports.Welcome = {
-    fontSize: "36px",
-    color: "white"
-}
+  fontSize: "36px",
+  color: "white",
+};
 
 exports.welcomeSpan = {
-    color:"teal"
-}
+  color: "teal",
+};
 
 exports.errorStyle = {
-    background: "none"
-}
+  background: "none",
+};
