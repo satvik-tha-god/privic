@@ -2,8 +2,14 @@
 const { model, Schema } = require("mongoose");
 
 const postSchema = new Schema({
-  body: String,
-  username: String,
+  body: {
+    type: String,
+    required: [true, "Please add body to post"]
+  },
+  username: {
+    type: String,
+    required: [true, "Username not found"]
+  },
   createdAt: String,
   comments: [
     {
